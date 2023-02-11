@@ -1,16 +1,21 @@
-﻿# docker_volume_backup
-## usage:
-first list your docker volume and get volumn name
+﻿# Docker Volume Backup
+## Usage:
+### List your docker volumes if you need to get the volume name.
 ```bash
-sudo docker volume ls
+docker volume ls
 ```
-backup
+
+### Backup
 ```bash
-#sudo backup_docker_volume.sh <volumn_name> <tar_file>
-sudo bash ./backup_docker_volume.sh codimd_database-data backup1.tar
+#./backup_docker_volume.sh <volume_name>
+./backup_docker_volume.sh onedev_db
 ```
-restore
+This will create a directory `./volume-backup/` and make a `<volume_name>.tar.gz` file.
+
+### Restore
 ```bash
-#sudo restore_docker_volume.sh <volumn_name> <tar_file>
-sudo bash ./restore_docker_volume.sh codimd_database-data backup1.tar
+#./restore_docker_volume.sh <volume_name>
+./restore_docker_volume.sh onedev_db
 ```
+
+*`./` isn't needed if you add to $PATH*
