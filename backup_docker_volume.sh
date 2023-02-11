@@ -1,2 +1,2 @@
 #!/bin/bash
-docker run --rm   --volume $1:/dbdata   --volume $(pwd):/backup   ubuntu   tar cvf /backup/$2 /dbdata
+docker run --rm --volume $1:/volumedata --volume $(pwd)/volume-backup:/backup busybox tar cvzf /backup/$1.tar.gz /volumedata
